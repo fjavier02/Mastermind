@@ -1,4 +1,5 @@
-alert("welcome the Mastermind")
+function Star() {
+    alert("welcome the Mastermind")
 
 let Player1 = prompt("inserte el nombre de un jugador 1")
 let Player2 = prompt("inserte el nombre de un jugador 2")
@@ -15,7 +16,7 @@ while (code.split("").length !== 4) {
 
 console.log("Jugador 1 " + Player1)
 console.log("Jugador 2 " + Player2)
-//console.log(code) 
+console.log(code) 
 
 let numero_code = code.split("")
 
@@ -154,4 +155,5 @@ function verificacion() {
     //console.log(code1.join(' '))
     console.log(numero_codeValidation.join(' ') + ": " + numero_correcto + " Numero correcto " + posicion_correcta + " posición correcta")
     return numero_correcto + posicion_correcta
+    }
 }
