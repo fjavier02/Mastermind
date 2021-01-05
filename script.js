@@ -75,11 +75,11 @@ function Start() {
         console.log(code15.join(' '))
     } */
 
-    for (let i = 0; i < 4; i++) {
+//    for (let i = 0; i < 4; i++) {
         let codeValidation = prompt(Player2 + " por favor inserte el codigo de 4 digitos");
         let numero_codeValidation = codeValidation.split("");
         verificacion();
-    }
+//    }
     
 
     
