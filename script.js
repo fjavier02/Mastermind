@@ -52,7 +52,7 @@ function Start() {
         // verificación diagonal principal
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 4; j++) {
-                if (i == j && validation [i] === numero_code[i] ) {
+                if (i == j && validation [j] === numero_code[i] ) {
                     posicion_correcta++;
                     cont.push(i);
                 }       
@@ -65,12 +65,26 @@ function Start() {
                  cont2.push(i)
             }
         }
+        // intento de verificación para numero que no fueron verificados
+        for (const iterator of cont2) {
+            //console.log(numero_code[iterator]);
+            console.log(cont2); 
+            for (let j = cont2[i] ; j < 4; j++) {
+                console.log(validation [j] + " validation J: " + j );
+                console.log(numero_code[iterator] + " numero_code en " + iterator);
+                if (validation [j] === numero_code[iterator]) {
+                    //cont2.shift();
+                    numero_correcto++;
+                    console.log(numero_correcto + " se sumo 1 en numero_correcto");
+                }
+            }
+        }
         console.log(cont2);
 
         //proximamente solo en cines: verificación de numero_correcto
-        cont2.forEach(element => {
+        /* cont2.forEach(element => {
             console.log(element)
-        });
+        }); */
         //console.log(numero_code);
         //console.log(save_numero_code);
 
