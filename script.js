@@ -41,7 +41,10 @@ function Start() {
                 for (let j = 0; j < 4; j++) {
                     if (i == j && res [j] === code_number[i] ) {
                         correct_position++;
-                        code_number[i]= "N";
+                        code_number[i]= "N" + i;
+                        res [j]= "N" + i;
+                        console.log(code_number);
+                        console.log(res);
                     }       
                 }
             }
@@ -50,12 +53,15 @@ function Start() {
                 for (let j = 0; j < 4; j++) {
                     if (i !== j && res [j] === code_number[i] ) {
                         correct_number++;
-                        code_number[i]= "B";
+                        code_number[i]= "B" + i;
+                        res [j]= "B" + i;
+                        console.log(code_number);
+                        console.log(res);
                     }       
                 }
             }
             var code = save_code;
-            
+            var res = codeValidation.split("");
 
             var correct_numbers = correct_number + correct_position;
             console.log(res.join(' ') + ": " + correct_numbers + " correct numbers: " + correct_position + " in the correct position and " + correct_number + " number in the wrong position.");
