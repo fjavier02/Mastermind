@@ -1,59 +1,73 @@
 alert("welcome the Mastermind")
 
-var Player1 = prompt("inserte el nombre de un jugador 1")
-var Player2 = prompt("inserte el nombre de un jugador 2")
+var Player1 = prompt("Insert the name of a player 1")
+var Player2 = prompt("Insert the name of a player 2")
 
-var code = prompt(Player1 + " por favor inserte un codigo de 4 numeros")
+var code = prompt(Player1 + " please insert a 4 number code")
 
 var save_code = code;
 
-console.log("Jugador 1 " + Player1);
-console.log("Jugador 2 " + Player2);
-console.log(code) ;
+console.log("Player 1 :" + Player1);
+console.log("Player 2 :" + Player2);
+//console.log(code) ;
 
-var numero_code = code.split("");
+var code_number = code.split("");
 
-var codeValidation = prompt("Por favor inserte el codigo de 4 digitos");
-var res = codeValidation.split("");
-console.log(res);
+
+//console.log(res);
 verificacion();
+console.log(correct_position)
 
 
 
 // verificación de los datos
-var numero_correcto;
-var posicion_correcta; 
+var correct_number;
+var correct_position; 
 
 function verificacion() {
     
-    var numero_correcto = 0;
-    var posicion_correcta = 0;
-    
+    for (let i = 0; i < 15; i++) {
 
-    // verificación diagonal principal
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-            if (i == j && res [j] === numero_code[i] ) {
-                posicion_correcta++;
-                console.log(numero_code[i]);
-                numero_code[i]= "N";
-            }       
+        var codeValidation = prompt(Player2 + " Decode the 4-digit code and enter it");
+        var res = codeValidation.split("");
+        
+        var correct_number = 0;
+        var correct_position = 0;
+        
+
+        // verificación diagonal principal
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (i == j && res [j] === code_number[i] ) {
+                    correct_position++;
+                    code_number[i]= "N";
+                }       
+            }
+        }
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (i !== j && res [j] === code_number[i] ) {
+                    correct_number++;
+                    code_number[i]= "B";
+                }       
+            }
+        }
+        var code = save_code;
+        
+
+        var correct_numbers = correct_number + correct_position;
+        console.log(res.join(' ') + ": " + correct_numbers + " correct numbers: " + correct_position + " in the correct position and " + correct_number + " number in the wrong position.");
+        code_number = code.split("");
+        //console.log(code);
+        //console.log(code_number);
+        //return correct_position
+        if (correct_position == 4) {
+            console.log("Decode Success")
+            break
+        }
+        if (i === 14 && correct_position !== 4 ) {
+            console.log("Game over")
         }
     }
-
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-            if (i !== j && res [j] === numero_code[i] ) {
-                numero_correcto++;
-                numero_code[i]= "B";
-                console.log(numero_code[i]);
-            }       
-        }
-    }
-
-    var code = save_code;
-
-    var numeros_correcto = numero_correcto + posicion_correcta;
-    console.log(res.join(' ') + ": " + numeros_correcto + " numeros correctos: " + posicion_correcta + " en la posición correcta y " + numero_correcto + " numero en la posicion incorrecta.")
-    return posicion_correcta
 }
