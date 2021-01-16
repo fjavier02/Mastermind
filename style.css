@@ -1,0 +1,220 @@
+body {
+    background-color: rgb(71, 71, 71);
+    margin: 0;
+}
+
+.container {
+    width: 70vh;
+    height: 80vh;
+    display: flex;
+    margin: 0 auto ;
+    margin-top: 5vh;
+}
+
+.container2{
+    padding: 5%;
+    display: flex;
+    
+}
+
+.tentos {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction:column-reverse;
+    border-top-left-radius: 2%;
+    border-bottom-left-radius: 2%;
+    overflow: hidden;
+    border-right: solid 2px rgba(0 , 0, 0, 0.8);
+    background-color: rgb(155, 155, 155);
+}
+.respostas {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    border-top-right-radius: 2%;
+    border-bottom-right-radius: 2%;
+    flex-direction:column-reverse;
+    overflow: hidden;
+    background-color: rgb(155, 155, 155);
+}
+
+.tento{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;    
+    justify-content: flex-end;
+    background-color:   rgb(92, 92, 92);
+}
+
+.resposta{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    justify-content: flex-end;
+    background-color:   rgb(92, 92, 92);
+}
+
+.resposta_black {
+    width: 20%;
+    padding-top: 20%;
+    border-radius: 50%;
+    margin: 5% 15%;
+    background-color: black;
+}
+
+.resposta_white {
+    width: 20%;
+    padding-top: 20%;
+    border-radius: 50%;
+    margin: 5% 15%;
+    background-color: white;
+}
+
+.resposta_null {
+    width: 20%;
+    padding-top: 20%;
+    border-radius: 50%;
+    margin: 5% 15%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container3 {
+    width: 80vh;
+    height: 10vh;
+    display: flex;
+    margin: 0 auto ;
+    margin-top: 2vh;
+    background-color: rgb(92, 92, 92);
+}
+
+.red {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: red;
+    cursor: pointer
+}
+
+.blue {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: blue;
+    cursor: pointer
+
+}
+
+.green {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: green;
+    cursor: pointer
+
+}
+
+.yellow {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: yellow;
+    cursor: pointer
+
+}
+
+.pink {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: #ff6781;
+    cursor: pointer
+
+}
+
+.purple {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: #4c2882;
+    cursor: pointer
+
+}
+.brown {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto;
+    background-color: #663300;
+    cursor: pointer
+
+}
+
+.backSpace {
+    width: 10%;
+    
+    border-radius: 50%;
+    margin: auto;
+    cursor: pointer
+    
+}
+
+.resposta_red {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color: red;
+}
+.resposta_blue {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color: blue;
+}
+.resposta_green {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color: green;
+}
+.resposta_yellow {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color: yellow;
+}
+.resposta_pink {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color: #ff6781;
+}
+.resposta_purple {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color: #4c2882;
+}
+.resposta_brown {
+    width: 10%;
+    padding-top: 10%;
+    border-radius: 50%;
+    margin: auto 6.25%;
+    background-color:#663300;
+}
