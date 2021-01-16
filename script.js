@@ -43,8 +43,8 @@ function Start() {
                         correct_position++;
                         code_number[i]= "N" + i;
                         res [j]= "N" + i;
-                        console.log(code_number);
-                        console.log(res);
+                        //console.log(code_number);
+                        //console.log(res);
                     }       
                 }
             }
@@ -55,8 +55,8 @@ function Start() {
                         correct_number++;
                         code_number[i]= "B" + i;
                         res [j]= "B" + i;
-                        console.log(code_number);
-                        console.log(res);
+                        //console.log(code_number);
+                        //console.log(res);
                     }       
                 }
             }
