@@ -25,7 +25,7 @@ function Start() {
     var correct_number;
     var correct_position; 
 
-    function verificacion() {
+    /* function verificacion() {
         
         for (let i = 0; i < 15; i++) {
 
@@ -77,10 +77,129 @@ function Start() {
                 console.log("Game over")
             }
         }
-    }
+    } */
 
 }
 
+var code_number = []
+for (let i = 0; i < 4; i++) {
+    code_number.push(getRandomInt(1,8));
+    console.log(code_number);
+}
+var save_code = code_number;
+//console.log(save_code)
+
+function displayDate() {
+//    console.log("hola")
+}
+
+var res = [];
+var codeValidation = [];
+
+function addColor(color) {
+    
+    res.push(color);
+    codeValidation.push(color);
+    console.log(res);
+    if (res.length == 4) {
+        console.log(res);
+        verificacion(res,code_number);
+        res = [];
+        codeValidation = [];
+    }
+    //console.log(color);
+}
+
+
+  
+
+function deleteColor(){
+    res.pop();
+    console.log(res);
+}
+
+function isTyping() {
+    document.querySelector("#typing").style.opacity="1";
+}
+
+//chat
+var socket = io.connect('http://localhost:8080');
+            // enviar mensaje de texto sin recargar/reiniciar la página
+            $('form').submit(function(e){
+                e.preventDefault(); // evitar recarga página
+                socket.emit('chat_message', $('#txt').val());
+                $('#txt').val('');
+                return false;
+            });
+            // Añadir mensaje texto al chat
+            socket.on('chat_message', function(msg){
+                $('#messages').append($('<li>').html(msg));
+            });
+            // Añadir texto si alguien está online
+            socket.on('is_online', function(username) {
+                $('#messages').append($('<li>').html(username));
+            });
+            // Preguntar el nombre de usuario
+            var username = prompt('Dime tu nombre, por favor');
+            socket.emit('username', username);
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+function verificacion(x,y) {
+        //console.log(y);
+        //console.log(x);
+        //console.log(codeValidation);
+    for (let i = 0; i < 10; i++) {
+        
+        var correct_number = 0;
+        var correct_position = 0;
+        
+
+        // verificación diagonal principal
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (i == j && x [j] === y[i] ) {
+                    correct_position++;
+                    y[i]= "N" + i;
+                    x [j]= "N" + i;
+                    console.log(y);
+                    console.log(x);
+                }       
+            }
+        }
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 4; j++) {
+                if (i !== j && x [j] === y[i] ) {
+                    correct_number++;
+                    y[i]= "B" + i;
+                    x [j]= "B" + i;
+                    console.log(y);
+                    console.log(x);
+                }       
+            }
+        }
+        var code = save_code;
+        //var x = codeValidation;
+        //console.log(x);
+        //console.log(codeValidation);
+
+        var correct_numbers = correct_number + correct_position;
+        console.log(codeValidation.join(' ') + ": " + correct_numbers + " correct numbers: " + correct_position + " in the correct position and " + correct_number + " number in the wrong position.");
+        
+        //console.log(code);
+        //console.log(y);
+        //return correct_position
+        if (correct_position == 4) {
+            console.log("Decode Success")
+            break
+        }
+        if (i === 10 && correct_position !== 4 ) {
+            console.log("Game over")
+        }
+    }
+    
 }
