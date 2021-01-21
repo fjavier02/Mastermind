@@ -103,9 +103,10 @@ function addColor(color) {
     console.log(res);
     if (res.length == 4) {
         console.log(res);
+        console.log(code_number);
         verificacion(res,code_number);
-        res = [];
-        codeValidation = [];
+        //res = [];
+        //codeValidation = [];
     }
     //console.log(color);
 }
@@ -123,7 +124,7 @@ function isTyping() {
 }
 
 //chat
-var socket = io.connect('http://localhost:8080');
+/* var socket = io.connect('http://localhost:8080');
             // enviar mensaje de texto sin recargar/reiniciar la página
             $('form').submit(function(e){
                 e.preventDefault(); // evitar recarga página
@@ -141,65 +142,62 @@ var socket = io.connect('http://localhost:8080');
             });
             // Preguntar el nombre de usuario
             var username = prompt('Dime tu nombre, por favor');
-            socket.emit('username', username);
+            socket.emit('username', username); */
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
 
-function verificacion(x,y) {
-        //console.log(y);
-        //console.log(x);
-        //console.log(codeValidation);
-    for (let i = 0; i < 10; i++) {
-        
-        var correct_number = 0;
-        var correct_position = 0;
-        
-
-        // verificación diagonal principal
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < 4; j++) {
-                if (i == j && x [j] === y[i] ) {
-                    correct_position++;
-                    y[i]= "N" + i;
-                    x [j]= "N" + i;
-                    console.log(y);
-                    console.log(x);
-                }       
-            }
-        }
-
-        for (let i = 0; i < 4; i++) {
-            for (let j = 0; j < 4; j++) {
-                if (i !== j && x [j] === y[i] ) {
-                    correct_number++;
-                    y[i]= "B" + i;
-                    x [j]= "B" + i;
-                    console.log(y);
-                    console.log(x);
-                }       
-            }
-        }
-        var code = save_code;
-        //var x = codeValidation;
-        //console.log(x);
-        //console.log(codeValidation);
-
-        var correct_numbers = correct_number + correct_position;
-        console.log(codeValidation.join(' ') + ": " + correct_numbers + " correct numbers: " + correct_position + " in the correct position and " + correct_number + " number in the wrong position.");
-        
-        //console.log(code);
-        //console.log(y);
-        //return correct_position
-        if (correct_position == 4) {
-            console.log("Decode Success")
-            break
-        }
-        if (i === 10 && correct_position !== 4 ) {
-            console.log("Game over")
+function verificacion(res,code_number) {
+    console.log(res);
+    console.log(code_number);
+    //console.log(codeValidation);
+    var correct_number = 0;
+    var correct_position = 0;
+    
+    // verificación diagonal principal
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            if (i == j && res [j] === code_number[i] ) {
+                correct_position++;
+                code_number[i]= "N" + i;
+                res [j]= "N" + i;
+                console.log(code_number);
+                console.log(res);
+            }       
         }
     }
+
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 4; j++) {
+            if (i !== j && res [j] === code_number[i] ) {
+                correct_number++;
+                code_number[i]= "B" + i;
+                res [j]= "B" + i;
+                console.log(code_number);
+                console.log(res);
+            }       
+        }
+    }
+    var code = save_code;
+    //var x = codeValidation;
+    //console.log(x);
+    //console.log(codeValidation);
+
+    var correct_numbers = correct_number + correct_position;
+    console.log(codeValidation.join(' ') + ": " + correct_numbers + " correct numbers: " + correct_position + " in the correct position and " + correct_number + " number in the wrong position.");
+    
+    //console.log(code);
+    //console.log(y);
+    //return correct_position
+   /*  if (correct_position == 4) {
+        console.log("Decode Success")
+        break
+    }
+    if (i === 10 && correct_position !== 4 ) {
+        console.log("Game over")
+    }  */
+    
     
 }
